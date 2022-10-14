@@ -2,15 +2,34 @@
  * @Author: tushaolong 1213167844@qq.com
  * @Date: 2022-10-08 14:06:24
  * @LastEditors: tushaolong 1213167844@qq.com
- * @LastEditTime: 2022-10-08 14:26:30
+ * @LastEditTime: 2022-10-12 14:45:34
  * @FilePath: \web\novel-partner-server\src\modules\users\users.service.ts
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: service users
  */
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { TestUser } from './entity/users.entity';
 
 @Injectable()
 export class UsersService {
-  login(): string {
-    return 'login success123';
+  constructor(
+    @InjectRepository(TestUser)
+    private usersRepository: Repository<TestUser>,
+  ) {}
+
+  findAll(): Promise<TestUser[]> {
+    return this.usersRepository.find();
+  }
+
+  findOne(name: string): Promise<TestUser[]> {
+    return this.usersRepository
+      .createQueryBuilder('testUser')
+      .where('testUser.name LIKE :param')
+      .setParameters({
+        param: `%${name}%`,
+      })
+      .orderBy('testUser.id', 'DESC')
+      .getMany();
   }
 }
