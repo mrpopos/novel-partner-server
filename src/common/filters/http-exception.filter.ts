@@ -2,7 +2,7 @@
  * @Author: tushaolong 1213167844@qq.com
  * @Date: 2022-10-19 15:58:50
  * @LastEditors: tushaolong 1213167844@qq.com
- * @LastEditTime: 2022-10-20 09:58:19
+ * @LastEditTime: 2022-10-21 12:07:59
  * @FilePath: \web\novel-partner-server\src\common\filters\http-exception.filter.ts
  * @Description: filter http-exception
  */
@@ -25,9 +25,9 @@ export class HttpExceptionFilter implements ExceptionFilter {
     response.status(status).json({
       time: new Date().toLocaleString(),
       path: request.url,
-      statusCode: status,
-      success: false,
-      message: exception.message,
+      code: status,
+      succ: false,
+      msg: exception.message,
     });
   }
 }

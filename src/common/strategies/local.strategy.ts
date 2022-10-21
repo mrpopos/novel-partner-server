@@ -2,7 +2,7 @@
  * @Author: tushaolong 1213167844@qq.com
  * @Date: 2022-10-20 16:10:45
  * @LastEditors: tushaolong 1213167844@qq.com
- * @LastEditTime: 2022-10-20 19:02:24
+ * @LastEditTime: 2022-10-21 11:55:56
  * @FilePath: \web\novel-partner-server\src\auth\local.strategy.ts
  * @Description: local strategy 身份验证
  */

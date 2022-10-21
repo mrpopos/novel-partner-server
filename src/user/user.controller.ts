@@ -2,7 +2,7 @@
  * @Author: tushaolong 1213167844@qq.com
  * @Date: 2022-10-14 16:06:58
  * @LastEditors: tushaolong 1213167844@qq.com
- * @LastEditTime: 2022-10-21 10:20:34
+ * @LastEditTime: 2022-10-21 16:54:35
  * @FilePath: \web\novel-partner-server\src\user\user.controller.ts
  * @Description: User Controller
  */
@@ -21,7 +21,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 
-@Controller('user')
+@Controller('cy-api/user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 

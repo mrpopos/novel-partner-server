@@ -2,7 +2,7 @@
  * @Author: tushaolong 1213167844@qq.com
  * @Date: 2022-10-20 18:14:45
  * @LastEditors: tushaolong 1213167844@qq.com
- * @LastEditTime: 2022-10-21 10:25:16
+ * @LastEditTime: 2022-10-21 18:29:40
  * @FilePath: \web\novel-partner-server\src\auth\jwt.strategy.ts
  * @Description: jwt strategy
  */
@@ -22,6 +22,13 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: any) {
-    return { userId: payload.sub, username: payload.username };
+    // console.log('payload', payload);
+    const data = {
+      code: 200,
+      msg: 'get user info successfully',
+      data: null,
+    };
+    data.data = { userId: payload.sub, username: payload.username };
+    return data;
   }
 }

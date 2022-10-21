@@ -2,18 +2,18 @@
  * @Author: tushaolong 1213167844@qq.com
  * @Date: 2022-10-20 16:20:37
  * @LastEditors: tushaolong 1213167844@qq.com
- * @LastEditTime: 2022-10-21 10:24:12
+ * @LastEditTime: 2022-10-21 17:41:21
  * @FilePath: \web\novel-partner-server\src\app.controller.ts
  * @Description: App Controller
  */
-import { Controller, Request, Post, Get, UseGuards } from '@nestjs/common';
+import { Controller, Request, Post, UseGuards, Get } from '@nestjs/common';
 // import { AuthGuard } from '@nestjs/passport';
 import { LocalAuthGuard } from './common/guards/local-auth.guard';
 // import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { AuthService } from './auth/auth.service';
 import { Public } from './common/decorators/public.decorator';
 
-@Controller('auth')
+@Controller('cy-api/user')
 export class AppController {
   constructor(private authService: AuthService) {}
   // 第一种情况：策略直接传递给AuthGuard('local')
@@ -34,7 +34,7 @@ export class AppController {
   }
 
   // @UseGuards(JwtAuthGuard)
-  @Get('profile')
+  @Post('info')
   getProfile(@Request() req) {
     return req.user;
   }
